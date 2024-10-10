@@ -1,0 +1,276 @@
+body {
+    background-color: hsl(0, 0%, 96%);
+    background-image: url('img/bg.jpg'), url('img/bg2.gif');
+    background-size: 70%, 100%;
+    background-position: center top, center top;
+    background-repeat: no-repeat, repeat;
+    text-align: center;
+    position: center;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+#start-screen {
+    font-family: Arial Black;
+}
+
+#game-logic-banner {
+    position: absolute;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+    font-family: cursive;
+    animation: fadeInOut 10s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
+
+#difficulty-selection {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 75px);
+    grid-template-rows: repeat(10, 75px);
+    gap: 5px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+#game-container {
+    font-family: cursive;
+}
+
+#match-enlarge-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Optional background to highlight image */
+    z-index: 9999;
+}
+
+#match-enlarge-container.hidden {
+    display: none; /* Class to hide when needed */
+}
+
+#match-enlarged-image {
+    max-width: 400px;
+    max-height: 400px;
+    animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Style for the congratulations screen */
+#congratulations-screen {
+    background-color: #f0f0f0; /* Set a neutral background color */
+    background-image: url('img/collage.jpg');
+    background-size: contain;
+    background-position: center top;
+    background-repeat: repeat;
+    height: auto;
+    position: center;
+}
+
+#congrats-gif {
+    width: 500px; /* Adjust the size of the GIF */
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#blessing-message {
+    font-size: 24px;
+    color: crimson;
+    animation: text-glow 1.5s ease-in-out infinite alternate;
+    text-align: center;
+    bottom: 0px; /* Position it near the bottom of the screen */
+    z-index: 1000; /* Ensure it's on top of other elements */
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent background for readability */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+@keyframes text-glow {
+    from {
+        text-shadow: 0 0 5px yellow, 0 0 10px yellow, 0 0 20px orange;
+    }
+    to {
+        text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px green;
+    }
+}
+
+/* Style for loading screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background with transparency */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Make sure it stays on top of everything */
+    visibility: visible; /* Initially visible */
+    opacity: 1;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Style for the spinner */
+.spinner {
+    border: 8px solid #0a42da;
+    border-top: 8px solid #2ff749;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+/* Spinner animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hide the loading screen after loading */
+#loading-screen.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+#final-score-container {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    justify-content: center; /* Horizontally center them */
+    gap: 20px; /* Add space between the score and the button */
+}
+
+#final-score-container h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+#final-score-container button {
+    padding: 10px 20px;
+}
+
+#score-play-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Add space between the score and the button */
+    margin-bottom: 20px;
+}
+
+#final-score-display {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: default;
+    border-radius: 5px;
+}
+
+#restart-game-btn {
+    padding: 10px 20px;
+    background-color: #126ec4;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#restart-game-btn:hover {
+    background-color: #b707ce;
+}
+
+.match-points {
+    color: green;
+    font-weight: bold;
+}
+
+.mismatch-points {
+    color: red;
+    font-weight: bold;
+}
+
+.attempt-no {
+    color: yellow;
+    font-weight: bold;
+}
+
+.tile {
+    width: 75px;
+    height: 75px;
+    background-color: #f18d8d;
+    cursor: grab;
+    border: 1px solid #000000;
+    transition: background-color 0.3s ease;
+}
+
+.tile.revealed {
+    background-color: transparent;
+    background-size: cover;
+}
+
+.tile.matched {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.glowing-text {
+    text-shadow: 5px 5px 10px yellow;
+}
+
+h1, h2 {
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #28a745;
+    color: #fff;
+    font-family: cursive;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+}
+
+button:hover {
+    background-color: #126ec4;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match-Match Game</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div id="start-screen">
+        <h1>Match-Match Game</h1>
+    </div>
+
+    <button id="click-here-btn" class="hidden">Click here!</button>
+
+    <div id="difficulty-selection" class="hidden">
+        <p><b><i>Select Level!</i></b></p>
+        <button id="easy-btn">Easy</button>
+        <button id="medium-btn">Medium</button>
+        <button id="hard-btn">Hard</button>
+    </div>
+
+    <div id="game-logic-banner" class="hidden">
+    <p>
+        <h2>Welcome!</h2>
+        <p>Each match earns <span class="match-points">10 points</span>.<br>
+        A mismatch reduces <span class="mismatch-points">2 points</span>.<br>
+        There are <span class="attempt-no">10 attempts</span> to reveal the tiles. Alas! you can't click them then!
+        </p>        
+    </p>
+    </div>
+
+    <div id="loading-screen">
+        <div class="spinner"></div>
+    </div>
+
+
+    <div id="game-container" class="hidden">
+        <h2>Score: <span id="score">0</span></h2>
+        <div id="grid-container"></div>
+        <button id="restart-game-btn">Restart Game</button>
+        <button id="toggle-reveal-btn">Reveal!</button> <!-- Single Toggle Button -->
+    </div>
+
+    <div id="end-screen" class="hidden">
+        <div id="final-score-container">
+            <h2><mark style="background-color: green;">Final Score: <span id="final-score">0</span></mark></h2>
+            <button id="restart-game-btn">Play Again</button> 
+        </div>
+        <button id="close-btn">Close</button>
+    </div>
+
+    <div id="match-enlarge-container" class="hidden">
+        <img id="match-enlarged-image" src="" alt="Enlarged match">
+    </div>
+
+    <div id="congratulations-screen" class="hidden">
+        <div id="score-play-container">
+            <button id="final-score-display">Final Score: <span id="congrats-final-score">0</span>/500</button>
+        </div>
+
+        <h2 id="blessing-message" class="glowing-text"><b><i>...CONGRATULATIONS MESSAGE...</i></b></h2>
+        
+        <img id="congrats-gif" src="static/img/congrats.gif" alt="Congratulations GIF">
+    </div>
+
+    <script src="static/game.js"></script>
+    
+</body>
+</html>
